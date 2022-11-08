@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{username}} posts</title>
+    <style>
+        body{
+            background-image:url("https://img.freepik.com/premium-vector/light-neumorphism-circle-background-three-dimensional-neumorphic-texture-wallpaper-neumorphism-vector-background-neumorphic-ui-ux-interface-design-vector-graphic-eps-10_564974-2.jpg?w=1380") ;
+            background-size:cover;
+        }
+        
+        #edit {
+            color:rgb(73, 50, 205);
+        }
+        #delete {
+            color:red;
+        }
+    </style>
+       
+</head>
+<body>
+
+        {% for post in posts %}
+        <fieldset>
+            <table>
+                <tr>
+                    <td><b>Author name:  &nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+                    <td><i>{{post[1]}}</i></td>
+                </tr>
+                <tr>
+                    <td><b>Title:&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+                    <td><i>{{post[2]}}</b></td>
+                </tr>
+                <tr>
+                    <td><b>Post:&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+                    <td><p><i>{{post[3]}}</i></p></td>
+                </tr>
+                <tr>
+                    <td><a id ='edit' href='/edit?id={{post[0]}}'>Edit</a></td>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td><a id ='delete' href='/trash?id={{post[0]}}'>Delete</a></td>
+                </tr> 
+            </table>
+        </fieldset>
+        <br>
+        {% endfor %}
+        <a href="/author-interface/{{username}}">Back</a>
+
+    
+
+</body>
+</html>

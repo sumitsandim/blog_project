@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create post</title>
+    <style>
+        body {
+            background-image: url("https://correctiv.org/wp-content/uploads/2021/09/blog-1.jpg");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    
+    <center>
+        <h2>Create your beautiful Post</h2>
+        <fieldset>
+        <form {% if old_post %}action="/edit-post?id={{old_post[0]}}" {% else %}action="/create-post"{% endif %} method="post">
+            <table>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type='text' name='username' {% if username %} value="{{username}}"{% endif %}
+                        {% if old_post %} value="{{old_post[1]}}" {% endif %}></td>
+                </tr>
+                <tr>
+                    <td>Title:</td>
+                    <td><input type='text' name='title' value="{{old_post[2]}}"></td>
+                </tr>
+                <tr>
+                    <td>Post:</td>
+                    <td><textarea name="post" rows="5" cols="50">{{old_post[3]}}</textarea></td>
+                </tr>
+                <tr>
+                    <td><input type='submit' {% if old_post %} value="Update"{% else %} value='Add' {% endif %}></td>
+                    <td><input type='reset' value="Refresh"></td>
+                </tr>
+            </table>
+        </form>
+        </fieldset>
+    </center>
+    <h3><a {% if old_post %}href="/post/{{old_post[1]}}"{% else %} href="/author-interface/{{username}}"{% endif %} >Back</a></h3>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All post</title>
+    <style>
+        body{
+            background-image:url("https://img.freepik.com/premium-vector/light-neumorphism-circle-background-three-dimensional-neumorphic-texture-wallpaper-neumorphism-vector-background-neumorphic-ui-ux-interface-design-vector-graphic-eps-10_564974-2.jpg?w=1380") ;
+            background-size:cover;
+        }
+    </style>    
+</head>
+<body>
+        {% for post in posts %}
+        <fieldset>
+            <table>
+                <tr>
+                    <td><b>Author name:  &nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+                    <td><i>{{post[1]}}</i></td>
+                </tr>
+                <tr>
+                    <td><b>Title:&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+                    <td><i>{{post[2]}}</b></td>
+                </tr>
+                <tr>
+                    <td><b>Post:&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+                    <td><p><i>{{post[3]}}</i></p></td>
+                </tr> 
+            </table>
+        </fieldset>
+        <br>
+        {% endfor %}
+        <a href="/">Back</a>
+        <center><h4><a href='/user-login'>Logout</a></h4></center>
+</body>
+</html>
